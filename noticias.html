@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CUENTA REGRESIVA</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+
+<main>
+<p> Ansiosa por cuanto falta, porque estoy segura que llegamos, y como se que vos también queres saber cuánto falta…. PARA EL AÑO </p>
+
+
+ <h2>Cuenta regresiva al 7 de marzo de 2026</h2>
+    <p id="cuenta"></p>
+
+    <script>
+        // Fecha objetivo: 7 de marzo de 2026 a las 00:00:00
+        const fechaObjetivo = new Date("March 7, 2026 00:00:00").getTime();
+
+        // Actualizar cada segundo
+        const temporizador = setInterval(function() {
+            const ahora = new Date().getTime();
+            const diferencia = fechaObjetivo - ahora;
+
+            if (diferencia <= 0) {
+                clearInterval(temporizador);
+                document.getElementById("cuenta").innerHTML = "¡La fecha ha llegado!";
+                return;
+            }
+
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+            document.getElementById("cuenta").innerHTML =
+                dias + " días, " +
+                horas + " horas, " +
+                minutos + " minutos, " +
+                segundos + " segundos";
+        }, 1000);
+    </script>
+
+<header>
+<nav>
+		<ul>
+			<a href="galeria.html"> < </a></li>
+		    <a href="recursos.html"> > </a></li>
+		
+		</ul>
+</nav>
+</header>
+</main>
+</body>
+</html>
